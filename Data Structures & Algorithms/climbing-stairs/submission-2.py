@@ -1,0 +1,15 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        dp = [-1]*(n+1)
+
+        def recursive(x):
+            if dp[x] != -1:
+                return dp[x]
+            if x in [1,2]: 
+                return x
+            dp[x] = recursive(x-1) + recursive(x-2)
+            return dp[x]
+
+        return recursive(n)
+
+        
