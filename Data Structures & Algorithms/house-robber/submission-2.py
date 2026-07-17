@@ -1,0 +1,22 @@
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 1:
+            return nums[0]
+        # dp = [-1]*(n+1)
+        #state dp[i] store the max rob of array of len i
+        # dp[0] = nums[0]
+        # dp[1] = max(nums[0], nums[1])
+        # for i in range(2, n):
+        #     dp[i] = max(dp[i-2]+nums[i], dp[i-1])
+        # return dp[n-1]
+
+        a = nums[0]
+        b = max(nums[0], nums[1])
+        for i in range(2, n):
+            c = max(a+nums[i], b)
+            a = b
+            b = c
+        return b
+
+        
